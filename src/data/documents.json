@@ -3,35 +3,140 @@
     "id": "constitution",
     "title": "VTPSA Constitution",
     "category": "constitution",
-    "date": "2025-02-15",
+    "date": "2022-06-03",
     "file": "/documents/constitution/constitution.pdf"
   },
   {
-    "id": "common-rules",
-    "title": "Common Rules",
+    "id": "handgun-rules",
+    "title": "Handgun Competition Rules",
     "category": "rulebooks",
-    "date": "2026-01-10",
-    "file": "/documents/ipsc-rulebooks/common-rules.pdf"
+    "date": "2026-01-01",
+    "file": "/documents/ipsc-rulebooks/2026-handgun-rules.pdf"
   },
   {
-    "id": "minutes-2026-03-agm",
-    "title": "AGM Minutes",
+    "id": "target-array-handbook",
+    "title": "Target Array Handbook",
+    "category": "rulebooks",
+    "date": "2026-01-01",
+    "file": "/documents/ipsc-rulebooks/2026-target-array-handbook.pdf"
+  },
+  {
+    "id": "handgun-eq-check",
+    "title": "Handgun Equipment Check Handbook",
+    "category": "rulebooks",
+    "date": "2019-01-01",
+    "file": "/documents/ipsc-rulebooks/2019-handgun-eq-check.pdf"
+  },
+  {
+    "id": "mini-rifle-rules",
+    "title": "Mini Rifle Rules",
+    "category": "rulebooks",
+    "date": "2024-01-01",
+    "file": "/documents/ipsc-rulebooks/2024-mini-rifle-rules.pdf"
+  },
+  {
+    "id": "pcc-rules",
+    "title": "PCC Rules",
+    "category": "rulebooks",
+    "date": "2026-01-01",
+    "file": "/documents/ipsc-rulebooks/2026-pcc-rules.pdf"
+  },
+  {
+    "id": "rifle-rules",
+    "title": "Rifle Rules",
+    "category": "rulebooks",
+    "date": "2024-01-01",
+    "file": "/documents/ipsc-rulebooks/2024-rifle-rules.pdf"
+  },
+  {
+    "id": "shotgun-rules",
+    "title": "Shotgun Rules",
+    "category": "rulebooks",
+    "date": "2026-01-01",
+    "file": "/documents/ipsc-rulebooks/2026-shotgun-rules.pdf"
+  },
+  {
+    "id": "2022-agm",
+    "title": "2022 AGM Minutes",
     "category": "minutes",
-    "date": "2026-03-14",
-    "file": "/documents/minutes/2026-03-agm-minutes.pdf"
+    "date": "2022-03-12",
+    "file": "/documents/minutes/2022-agm.pdf"
   },
   {
-    "id": "minutes-2025-09-committee",
-    "title": "Committee Meeting Minutes",
+    "id": "2022-08-dcom",
+    "title": "2022-08 Delegates Committee Meeting Minutes",
     "category": "minutes",
-    "date": "2025-09-20",
-    "file": "/documents/minutes/2025-09-committee-minutes.pdf"
+    "date": "2022-08-25",
+    "file": "/documents/minutes/2022-08-delegates-committee-meeting-minutes.pdf"
   },
   {
-    "id": "report-2025-financial",
-    "title": "Financial Report 2025",
+    "id": "2023-agm",
+    "title": "2023 AGM Minutes",
+    "category": "minutes",
+    "date": "2023-03-25",
+    "file": "/documents/minutes/2023-agm.pdf"
+  },
+  {
+    "id": "2023-02-dcom",
+    "title": "2023-02 Delegates Committee Meeting Minutes",
+    "category": "minutes",
+    "date": "2023-02-03",
+    "file": "/documents/minutes/2023-02-delegates-committee-meeting-minutes.pdf"
+  },
+  {
+    "id": "2023-07-dcom",
+    "title": "2023-07 Delegates Committee Meeting Minutes",
+    "category": "minutes",
+    "date": "2023-07-17",
+    "file": "/documents/minutes/2023-07-delegates-committee-meeting-minutes.pdf"
+  },
+  {
+    "id": "2024-agm",
+    "title": "2024 AGM Minutes",
+    "category": "minutes",
+    "date": "2024-03-16",
+    "file": "/documents/minutes/2024-agm.pdf"
+  },
+  {
+    "id": "2024-02-dcom",
+    "title": "2024-02 Delegates Committee Meeting Minutes",
+    "category": "minutes",
+    "date": "2024-02-01",
+    "file": "/documents/minutes/2024-02-delegates-committee-meeting-minutes.pdf"
+  },
+  {
+    "id": "2024-10-dcom",
+    "title": "2024-10 Delegates Committee Meeting Minutes",
+    "category": "minutes",
+    "date": "2024-10-07",
+    "file": "/documents/minutes/2024-10-delegates-committee-meeting-minutes.pdf"
+  },
+  {
+    "id": "2025-agm",
+    "title": "2025 AGM Minutes",
+    "category": "minutes",
+    "date": "2025-03-15",
+    "file": "/documents/minutes/2025-agm.pdf"
+  },
+  {
+    "id": "2025-02-dcom",
+    "title": "2025-02 Delegates Committee Meeting Minutes",
+    "category": "minutes",
+    "date": "2025-02-16",
+    "file": "/documents/minutes/2024-02-delegates-committee-meeting-minutes.pdf"
+  },
+  {
+    "id": "2023-financial-report",
+    "title": "2023 Financial Report",
     "category": "reports",
-    "date": "2026-02-28",
-    "file": "/documents/reports/2025-financial-report.pdf"
+    "date": "2024-03-31",
+    "file": "/documents/reports/2023-fin-report.pdf"
+  },
+  {
+    "id": "2023-chairman-report",
+    "title": "2023 Chairman Report",
+    "category": "reports",
+    "date": "2024-03-31",
+    "file": "/documents/reports/2023-chairman-report.pdf"
   }
 ]
