@@ -1,8 +1,37 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPhotos, getPhotoYears } from "../../lib/photos";
+
+const photos = getPhotos();
+const years = getPhotoYears();
 ---
 
 <BaseLayout title="Photos">
-  <h1 class="text-3xl font-bold text-brand-blue">Clubs</h1>
-  <p class="mt-4">Coming soon.</p>
+  <h1 class="text-3xl font-bold text-brand-blue">Photos</h1>
+  <p class="mt-4">Select a year to see photos from that season's competitions.</p>
+
+  <ul class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {years.map((year) => (
+      <li>
+        <a
+          href={`/photos/${year}/`}
+          class="block overflow-hidden rounded-lg border border-gray-200 hover:border-brand-blue"
+        >
+          <Image
+            src={photos[year][0].image}
+            alt=""
+            width={640}
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <div class="border-t-4 border-brand-red p-4">
+            <span class="text-2xl font-bold text-brand-blue">{year}</span>
+            <span class="ml-2 text-sm text-gray-600">
+              {photos[year].length} {photos[year].length === 1 ? "photo" : "photos"}
+            </span>
+          </div>
+        </a>
+      </li>
+    ))}
+  </ul>
 </BaseLayout>

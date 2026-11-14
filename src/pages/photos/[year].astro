@@ -1,0 +1,59 @@
+---
+import { Image, getImage } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPhotos, getPhotoYears } from "../../lib/photos";
+
+export function getStaticPaths() {
+  const photos = getPhotos();
+  return getPhotoYears().map((year) => ({
+    params: { year },
+    props: { year, photos: photos[year] },
+  }));
+}
+
+const { year, photos } = Astro.props;
+
+// A large version of each photo, used for viewing and downloading.
+const items = await Promise.all(
+  photos.map(async (photo) => ({
+    ...photo,
+    large: await getImage({
+      src: photo.image,
+      width: Math.min(photo.image.width, 2400),
+    }),
+  }))
+);
+---
+
+<BaseLayout title={`Photos ${year}`}>
+  <h1 class="text-3xl font-bold text-brand-blue">Photos {year}</h1>
+  <p class="mt-2">
+    <a href="/photos/" class="text-brand-blue underline">← All years</a>
+  </p>
+
+  <ul class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {items.map((item) => (
+      <li class="overflow-hidden rounded-lg border border-gray-200">
+        <a href={item.large.src}>
+          <Image
+            src={item.image}
+            alt={item.caption || `Photo from ${year}`}
+            width={640}
+            loading="lazy"
+            class="aspect-[4/3] w-full object-cover"
+          />
+        </a>
+        <div class="p-3">
+          {item.caption && <p class="text-sm">{item.caption}</p>}
+          <a
+            href={item.large.src}
+            download
+            class="mt-2 inline-block text-sm font-semibold text-brand-blue underline"
+          >
+            Download photo
+          </a>
+        </div>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
