@@ -5,10 +5,10 @@ import { join } from "node:path";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const categories = [
-  { key: "constitution", label: "Constitution" },
-  { key: "rulebooks", label: "Rulebooks" },
-  { key: "minutes", label: "Minutes" },
-  { key: "reports", label: "Reports" },
+  { key: "constitution", label: "Constitution", sort: "date" },
+  { key: "rulebooks", label: "Rulebooks", sort: "title" },
+  { key: "minutes", label: "Minutes", sort: "date" },
+  { key: "reports", label: "Reports", sort: "date" },
 ] as const;
 
 const entries = await getCollection("documents");
@@ -27,11 +27,15 @@ function fileSize(path: string, title: string) {
 }
 
 const groups = categories
-  .map(({ key, label }) => ({
+  .map(({ key, label, sort }) => ({
     label,
     docs: entries
       .filter((e) => e.data.category === key)
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+      .sort((a, b) =>
+        sort === "title"
+          ? a.data.title.localeCompare(b.data.title)
+          : b.data.date.getTime() - a.data.date.getTime()
+      )
       .map((e) => ({ ...e.data, size: fileSize(e.data.file, e.data.title) })),
   }))
   .filter((g) => g.docs.length > 0);

@@ -1,8 +1,33 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getResults, getYears } from "../../lib/results";
+
+const results = getResults();
+const years = getYears();
 ---
 
 <BaseLayout title="Results">
-  <h1 class="text-3xl font-bold text-brand-blue">Clubs</h1>
-  <p class="mt-4">Coming soon.</p>
+  <h1 class="text-3xl font-bold text-brand-blue">Results</h1>
+  <p class="mt-4">Select a year to see the results log for each division.</p>
+
+  <ul class="mt-6 grid gap-4 sm:grid-cols-3">
+    {years.map((year, i) => (
+      <li>
+        <a
+          href={`/results/${year}/`}
+          class="block rounded-lg border border-gray-200 border-l-4 border-l-brand-red p-5 hover:border-brand-blue"
+        >
+          <span class="text-2xl font-bold text-brand-blue">{year}</span>
+          {i === 0 && (
+            <span class="ml-2 rounded bg-brand-orange px-2 py-0.5 text-xs font-semibold text-black">
+              Latest
+            </span>
+          )}
+          <span class="mt-1 block text-sm text-gray-600">
+            {results[year].map((d) => d.name).join(", ")}
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
 </BaseLayout>

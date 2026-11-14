@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { TEXT_COLUMNS, getResults, getYears } from "../../lib/results";
+
+export function getStaticPaths() {
+  const results = getResults();
+  return getYears().map((year) => ({
+    params: { year },
+    props: { year, divisions: results[year] },
+  }));
+}
+
+const { year, divisions } = Astro.props;
+---
+
+<BaseLayout title={`Results ${year}`}>
+  <h1 class="text-3xl font-bold text-brand-blue">Results {year}</h1>
+  <p class="mt-2">
+    <a href="/results/" class="text-brand-blue underline">← All years</a>
+  </p>
+  <p class="mt-4 text-sm text-gray-600">Results are updated after each competition.</p>
+
+  {divisions.length > 1 && (
+    <nav aria-label="Divisions" class="mt-4 flex flex-wrap gap-2">
+      {divisions.map((d) => (
+        <a
+          href={`#${d.slug}`}
+          class="rounded border border-brand-blue px-3 py-1 text-sm font-semibold text-brand-blue hover:bg-brand-blue hover:text-white"
+        >
+          {d.name}
+        </a>
+      ))}
+    </nav>
+  )}
+
+  {divisions.map((d) => (
+    <section id={d.slug} class="mt-10">
+      <h2 class="border-b-2 border-brand-red pb-1 text-2xl font-semibold text-brand-blue">
+        {d.name}
+      </h2>
+      <div class="mt-4 overflow-x-auto">
+        <table class="w-full min-w-max border-collapse text-left text-sm">
+          <caption class="sr-only">{d.name} results {year}</caption>
+          <thead class="bg-brand-blue text-white">
+            <tr>
+              {d.headers.map((header, i) => (
+                <th scope="col" class:list={["px-3 py-2", i >= TEXT_COLUMNS && "text-right"]}>
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {d.rows.map((row) => (
+              <tr class="border-b border-gray-200 odd:bg-white even:bg-gray-50">
+                {row.map((cell, i) => (
+                  <td
+                    class:list={[
+                      "px-3 py-2",
+                      i >= TEXT_COLUMNS && "text-right",
+                      i === 0 && "font-semibold",
+                      i === TEXT_COLUMNS && "font-semibold text-brand-blue",
+                    ]}
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ))}
+</BaseLayout>
