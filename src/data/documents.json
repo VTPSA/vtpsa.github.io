@@ -63,19 +63,40 @@
     "file": "/documents/minutes/2022-agm.pdf"
   },
   {
-    "id": "2022-08-dcom",
-    "title": "2022-08 Delegates Committee Meeting Minutes",
-    "category": "minutes",
-    "date": "2022-08-25",
-    "file": "/documents/minutes/2022-08-delegates-committee-meeting-minutes.pdf"
-  },
-  {
     "id": "2023-agm",
     "title": "2023 AGM Minutes",
     "category": "minutes",
     "date": "2023-03-25",
     "file": "/documents/minutes/2023-agm.pdf"
   },
+  {
+    "id": "2024-agm",
+    "title": "2024 AGM Minutes",
+    "category": "minutes",
+    "date": "2024-03-16",
+    "file": "/documents/minutes/2024-agm.pdf"
+  },
+  {
+    "id": "2025-agm",
+    "title": "2025 AGM Minutes",
+    "category": "minutes",
+    "date": "2025-03-15",
+    "file": "/documents/minutes/2025-agm.pdf"
+  },
+  {
+    "id": "2026-agm",
+    "title": "2026 AGM Minutes",
+    "category": "minutes",
+    "date": "2026-03-15",
+    "file": "/documents/minutes/2026-agm.pdf"
+  },
+  {
+    "id": "2022-08-dcom",
+    "title": "2022-08 Delegates Committee Meeting Minutes",
+    "category": "minutes",
+    "date": "2022-08-25",
+    "file": "/documents/minutes/2022-08-delegates-committee-meeting-minutes.pdf"
+  },  
   {
     "id": "2023-02-dcom",
     "title": "2023-02 Delegates Committee Meeting Minutes",
@@ -89,14 +110,7 @@
     "category": "minutes",
     "date": "2023-07-17",
     "file": "/documents/minutes/2023-07-delegates-committee-meeting-minutes.pdf"
-  },
-  {
-    "id": "2024-agm",
-    "title": "2024 AGM Minutes",
-    "category": "minutes",
-    "date": "2024-03-16",
-    "file": "/documents/minutes/2024-agm.pdf"
-  },
+  },  
   {
     "id": "2024-02-dcom",
     "title": "2024-02 Delegates Committee Meeting Minutes",
@@ -110,20 +124,20 @@
     "category": "minutes",
     "date": "2024-10-07",
     "file": "/documents/minutes/2024-10-delegates-committee-meeting-minutes.pdf"
-  },
-  {
-    "id": "2025-agm",
-    "title": "2025 AGM Minutes",
-    "category": "minutes",
-    "date": "2025-03-15",
-    "file": "/documents/minutes/2025-agm.pdf"
-  },
+  },  
   {
     "id": "2025-02-dcom",
     "title": "2025-02 Delegates Committee Meeting Minutes",
     "category": "minutes",
     "date": "2025-02-16",
-    "file": "/documents/minutes/2024-02-delegates-committee-meeting-minutes.pdf"
+    "file": "/documents/minutes/2025-02-delegates-committee-meeting-minutes.pdf"
+  },
+  {
+    "id": "2026-01-dcom",
+    "title": "2026-01 Delegates Committee Meeting Minutes",
+    "category": "minutes",
+    "date": "2026-01-01",
+    "file": "/documents/minutes/2026-01-delegates-committee-meeting-minutes.pdf"
   },
   {
     "id": "2023-financial-report",
@@ -138,5 +152,26 @@
     "category": "reports",
     "date": "2024-03-31",
     "file": "/documents/reports/2023-chairman-report.pdf"
+  },
+  {
+    "id": "2024-chairman-report",
+    "title": "2024 Chairman Report",
+    "category": "reports",
+    "date": "2025-03-31",
+    "file": "/documents/reports/2024-chairman-report.pdf"
+  },
+  {
+    "id": "2025-financial-report",
+    "title": "2025 Financial Report",
+    "category": "reports",
+    "date": "2026-03-31",
+    "file": "/documents/reports/2025-fin-report.pdf"
+  },
+  {
+    "id": "2025-chairman-report",
+    "title": "2025 Chairman Report",
+    "category": "reports",
+    "date": "2026-03-31",
+    "file": "/documents/reports/2025-chairman-report.pdf"
   }
 ]

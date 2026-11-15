@@ -1,0 +1,14 @@
+[
+  { "date": "2026-01-23", "title": "Club shoot", "type": "clubshoot", "venue": "Wolwehoek" },
+  { "date": "2026-01-29", "endDate": "2026-01-31", "title": "Handgun Nationals", "type": "other", "venue": "Excalibur" },
+  { "date": "2026-02-27", "title": "League", "type": "league", "venue": "Wolwehoek" },
+  { "date": "2026-03-27", "title": "Club shoot", "type": "clubshoot", "venue": "Wolwehoek" },
+  { "date": "2026-04-24", "title": "Club shoot", "type": "clubshoot", "venue": "Wolwehoek" },
+  { "date": "2026-05-22", "title": "League", "type": "league", "venue": "Wolwehoek" },
+  { "date": "2026-06-26", "title": "Club shoot", "type": "clubshoot", "venue": "Wolwehoek" },
+  { "date": "2026-07-24", "title": "League", "type": "league", "venue": "Wolwehoek" },
+  { "date": "2026-08-28", "title": "League", "type": "league", "venue": "Wolwehoek" },
+  { "date": "2026-09-25", "title": "Club shoot", "type": "clubshoot", "venue": "Wolwehoek" },
+  { "date": "2026-10-23", "title": "League", "type": "league", "venue": "Wolwehoek" },
+  { "date": "2026-11-27", "title": "Club shoot", "type": "clubshoot", "venue": "Wolwehoek" }
+]

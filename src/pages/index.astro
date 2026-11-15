@@ -1,8 +1,95 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { MONTHS, formatEventDate, getEvents } from "../lib/events";
+
+const events = getEvents();
+const years = [...new Set(events.map((e) => e.date.slice(0, 4)))];
+const thisYear = String(new Date().getFullYear());
+const year = years.includes(thisYear) ? thisYear : years[years.length - 1];
+
+const months = MONTHS.map((name, i) => ({
+  name,
+  events: events.filter((e) => e.date.startsWith(year) && Number(e.date.slice(5, 7)) === i + 1),
+})).filter((m) => m.events.length > 0);
+
+const badge = {
+  league: { label: "League", classes: "bg-brand-blue text-white" },
+  clubshoot: { label: "Club shoot", classes: "bg-gray-200 text-gray-800" },
+  other: { label: "Event", classes: "bg-brand-orange text-black" },
+};
+
+const sections = [
+  { href: "/results/", title: "Results", text: "Results logs for every division, current and past seasons." },
+  { href: "/clubs/", title: "Clubs", text: "Affiliated clubs and how to contact them." },
+  { href: "/documents/", title: "Documents", text: "Constitution, rulebooks, minutes and reports." },
+  { href: "/photos/", title: "Photos", text: "Photos from competitions, year by year." },
+  { href: "/contact/", title: "Contact", text: "Get in touch with the chairman." },
+];
 ---
 
 <BaseLayout title="Home">
   <h1 class="text-3xl font-bold text-brand-blue">Welcome to VTPSA</h1>
-  <p class="mt-4">The yearly calendar will go here.</p>
+  <p class="mt-4 max-w-prose">
+    Replace this with a short introduction to the organisation: who you are and what you do.
+  </p>
+
+  <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {sections.map((s) => (
+      <li>
+        <a
+          href={s.href}
+          class="block h-full rounded-lg border border-gray-200 border-l-4 border-l-brand-red p-5 hover:border-brand-blue"
+        >
+          <span class="text-xl font-bold text-brand-blue">{s.title}</span>
+          <span class="mt-1 block text-sm text-gray-600">{s.text}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <section id="calendar" class="mt-12">
+    <h2 class="border-b-2 border-brand-red pb-1 text-2xl font-semibold text-brand-blue">
+      Calendar {year}
+    </h2>
+
+    {months.map((month) => (
+      <div class="mt-6">
+        <h3 class="text-lg font-semibold text-gray-700">{month.name}</h3>
+        <ul class="mt-2 space-y-2">
+          {month.events.map((e) => (
+            <li
+              data-end={e.endDate ?? e.date}
+              class="group flex flex-wrap items-center gap-x-4 gap-y-1 rounded border border-gray-200 border-l-4 border-l-gray-300 px-4 py-3 data-[state=past]:text-gray-500 data-[state=next]:border-l-brand-orange data-[state=next]:bg-orange-50"
+            >
+              <span class="w-44 font-semibold">{formatEventDate(e)}</span>
+              <span>
+                {e.title}
+                {e.venue && <span class="text-gray-600"> · {e.venue}</span>}
+              </span>
+              <span class={`rounded px-2 py-0.5 text-xs font-semibold ${badge[e.type].classes}`}>
+                {badge[e.type].label}
+              </span>
+              <span class="hidden rounded bg-brand-red px-2 py-0.5 text-xs font-semibold text-white group-data-[state=next]:inline">
+                Next
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+
+  <script>
+    // Mark past events and highlight the next one, using the visitor's own date.
+    const today = new Date().toLocaleDateString("en-CA"); // YYYY-MM-DD
+    let nextFound = false;
+    document.querySelectorAll<HTMLElement>("[data-end]").forEach((item) => {
+      if (item.dataset.end! < today) {
+        item.dataset.state = "past";
+      } else if (!nextFound) {
+        item.dataset.state = "next";
+        nextFound = true;
+      }
+    });
+  </script>
 </BaseLayout>

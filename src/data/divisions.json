@@ -4,5 +4,6 @@
   { "slug": "production-optics", "name": "production-optics" },
   { "slug": "open", "name": "open" },
   { "slug": "optics", "name": "optics" },
-  { "slug": "pcc-optics", "name": "pcc-optics" }
+  { "slug": "pcc-optics", "name": "pcc-optics" },
+  { "slug": "classic","name": "classic"}
 ]
