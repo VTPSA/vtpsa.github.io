@@ -1,9 +1,9 @@
 {
   "name": "Cosmos Shooting Club",
   "logo": "./cosmos.png",
-  "location": "Town, Province",
+  "location": "Vaal Triangle, (virtual club)",
   "contact": {
-    "name": "Firstname Surname",
+    "name": "Andre van Tonder",
     "email": "beta@example.com"
   }
 }
