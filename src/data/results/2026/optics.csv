@@ -1,7 +1,7 @@
-﻿#,Surname,Name,Cat,Best (3/5),Feb,May,July,Aug,Oct,,,
-1,Otto,Johan,,100.00,,100.00,100.00,100.00,,,,
-2,Du Randt,Francois,,83.87,100.00,73.21,78.39,,,,,
-3,Fourie,Pieter,S,75.66,,57.31,62.66,64.31,100.00,,,
-4,Nortje,Wian,,74.23,65.37,71.71,71.85,68.19,79.14,,,
-5,Klue,Nico,,69.82,63.07,56.76,,50.55,89.63,,,
-6,Henrico,Jennifer,L,32.94,54.30,44.52,,,,,,
+﻿#,Surname,Name,Cat,Best (3/5),Feb,May,July,Aug,Oct
+1,Otto,Johan,,100.00,,100.00,100.00,100.00,
+2,Du Randt,Francois,,83.87,100.00,73.21,78.39
+3,Fourie,Pieter,S,75.66,,57.31,62.66,64.31,100.00
+4,Nortje,Wian,,74.23,65.37,71.71,71.85,68.19,79.14
+5,Klue,Nico,,69.82,63.07,56.76,,50.55,89.63
+6,Henrico,Jennifer,L,32.94,54.30,44.52,,,
