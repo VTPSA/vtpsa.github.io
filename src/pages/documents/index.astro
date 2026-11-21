@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import { statSync } from "node:fs";
-import { join } from "node:path";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { dateFormat, fileSize } from "../../lib/documents";
 
 const categories = [
   { key: "constitution", label: "Constitution", sort: "date" },
@@ -12,19 +11,6 @@ const categories = [
 ] as const;
 
 const entries = await getCollection("documents");
-
-function fileSize(path: string, title: string) {
-  try {
-    const bytes = statSync(join(process.cwd(), "public", path)).size;
-    return bytes < 1024 * 1024
-      ? `${Math.round(bytes / 1024)} KB`
-      : `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-  } catch {
-    throw new Error(
-      `Document "${title}" points to ${path}, but no such file exists in public/.`
-    );
-  }
-}
 
 const groups = categories
   .map(({ key, label, sort }) => ({
@@ -39,13 +25,6 @@ const groups = categories
       .map((e) => ({ ...e.data, size: fileSize(e.data.file, e.data.title) })),
   }))
   .filter((g) => g.docs.length > 0);
-
-const dateFormat = new Intl.DateTimeFormat("en-ZA", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-  timeZone: "UTC",
-});
 ---
 
 <BaseLayout title="Documents">

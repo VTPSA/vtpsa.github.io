@@ -1,11 +1,13 @@
 [ 
   { "date": "2027-01-23", "title": "Club shoot 1", "type": "clubshoot", "venue": "Wolwehoek" },
   { "date": "2027-01-29", "endDate": "2027-01-31", "title": "Handgun Nationals", "type": "other", "venue": "Excalibur" },
+  { "date": "2027-02-13", "title": "Run & Gun 1", "type": "other", "venue": "Wolwehoek" },
   { "date": "2027-02-20", "title": "Old Man shoot 1", "type": "other", "venue": "Wolwehoek" },
   { "date": "2027-02-27", "title": "VT League 1", "type": "league", "venue": "Wolwehoek" },
   { "date": "2027-03-27", "title": "Club shoot 2", "type": "clubshoot", "venue": "Wolwehoek" },
   { "date": "2027-04-16", "title": "Friday Night Shoot", "type": "other", "venue": "Wolwehoek" },
   { "date": "2027-04-24", "title": "Club shoot 3", "type": "clubshoot", "venue": "Wolwehoek" },
+  { "date": "2027-05-01", "title": "Run & Gun 2", "type": "other", "venue": "Wolwehoek" },
   { "date": "2027-05-22", "title": "VT League 2", "type": "league", "venue": "Wolwehoek" },
   { "date": "2027-06-05", "endDate": "2027-06-06", "title": "Handgun Nationals", "type": "other", "venue": "Northern Gauteng" },
   { "date": "2027-06-19", "title": "Old Man shoot 2", "type": "other", "venue": "Wolwehoek" },
@@ -14,6 +16,7 @@
   { "date": "2027-08-28", "title": "VT League 4", "type": "league", "venue": "Wolwehoek" },
   { "date": "2027-09-17", "endDate": "2027-09-19", "title": "Africa Championship", "type": "other", "venue": "Zimbabwe" },
   { "date": "2027-09-25", "title": "Club shoot 5", "type": "clubshoot", "venue": "Wolwehoek" },
+  { "date": "2027-10-09", "title": "Run & Gun 3", "type": "other", "venue": "Wolwehoek" },
   { "date": "2027-10-16", "title": "Old Man shoot 3", "type": "other", "venue": "Wolwehoek" },
   { "date": "2027-10-23", "title": "VT League 5", "type": "league", "venue": "Wolwehoek" },
   { "date": "2027-11-20", "title": "Club shoot 6", "type": "clubshoot", "venue": "Wolwehoek" }

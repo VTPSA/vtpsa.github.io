@@ -20,9 +20,10 @@ const clubs = defineCollection({
 
 const documents = defineCollection({
   loader: file("./src/data/documents.json"),
-  schema: z.object({
+   schema: z.object({
     title: z.string(),
-    category: z.enum(["constitution", "rulebooks", "minutes", "reports"]),
+    category: z.enum(["constitution", "rulebooks", "minutes", "reports", "development"]),
+    topic: z.string().optional(),
     date: z.coerce.date(),
     file: z.string().startsWith("/documents/"),
   }),

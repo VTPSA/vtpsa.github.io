@@ -1,0 +1,6 @@
+[
+  { "slug": "provincial-colours", "title": "Provincial Colours", "description": "Members awarded provincial colours." },
+  { "slug": "national-colours", "title": "National Colours", "description": "Members awarded national colours." },
+  { "slug": "national-prizes", "title": "National Prizes", "description": "Prizes won at national level." },
+  { "slug": "international-prizes", "title": "International Prizes", "description": "Prizes won at international level." }
+]

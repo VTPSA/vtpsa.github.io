@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getHonours } from "../../lib/honours";
+
+const categories = getHonours();
+---
+
+<BaseLayout title="Honour Roll">
+  <h1 class="text-3xl font-bold text-brand-blue">Honour Roll</h1>
+  <p class="mt-4 max-w-prose">
+    Recognising members who have represented the province and the country, and those who have won prizes at national and international level.
+  </p>
+
+  <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+    {categories.map((c) => (
+      <li>
+        <a
+          href={`/honours/${c.slug}/`}
+          class="block h-full rounded-lg border border-gray-200 border-l-4 border-l-brand-red p-5 hover:border-brand-blue"
+        >
+          <span class="text-xl font-bold text-brand-blue">{c.title}</span>
+          <span class="mt-1 block text-sm text-gray-600">{c.description}</span>
+          <span class="mt-2 block text-sm font-semibold">
+            {c.rows.length} {c.rows.length === 1 ? "entry" : "entries"}
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

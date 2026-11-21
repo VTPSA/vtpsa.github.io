@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { dateFormat, fileSize } from "../../lib/documents";
+
+const entries = (await getCollection("documents")).filter(
+  (e) => e.data.category === "development"
+);
+
+const topicOf = (e: (typeof entries)[number]) => e.data.topic ?? "General";
+
+// "General" first, then the other topics alphabetically.
+const topics = [...new Set(entries.map(topicOf))].sort((a, b) =>
+  a === "General" ? -1 : b === "General" ? 1 : a.localeCompare(b)
+);
+
+const groups = topics.map((topic) => ({
+  topic,
+  docs: entries
+    .filter((e) => topicOf(e) === topic)
+    .sort((a, b) => a.data.title.localeCompare(b.data.title))
+    .map((e) => ({ ...e.data, size: fileSize(e.data.file, e.data.title) })),
+}));
+
+const showTopics = groups.length > 1;
+---
+
+<BaseLayout title="Development">
+  <h1 class="text-3xl font-bold text-brand-blue">Development</h1>
+  <p class="mt-4 max-w-prose">
+    Training manuals and guides to help you improve your shooting. Select a title to open the PDF.
+  </p>
+
+  {groups.length === 0 && <p class="mt-8 text-gray-600">Training material is coming soon.</p>}
+
+  {groups.map((group) => (
+    <section class="mt-10">
+      {showTopics && (
+        <h2 class="border-b-2 border-brand-red pb-1 text-2xl font-semibold text-brand-blue">
+          {group.topic}
+        </h2>
+      )}
+      <ul class="mt-4 divide-y divide-gray-200">
+        {group.docs.map((doc) => (
+          <li class="flex flex-wrap items-baseline justify-between gap-x-4 py-3">
+            <a href={doc.file} class="font-semibold text-brand-blue underline">{doc.title}</a>
+            <span class="text-sm text-gray-600">
+              Updated {dateFormat.format(doc.date)} · PDF, {doc.size}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</BaseLayout>

@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getHonours } from "../../lib/honours";
+
+export function getStaticPaths() {
+  return getHonours().map((category) => ({
+    params: { category: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+---
+
+<BaseLayout title={category.title}>
+  <h1 class="text-3xl font-bold text-brand-blue">{category.title}</h1>
+  <p class="mt-2">
+    <a href="/honours/" class="text-brand-blue underline">← Honour Roll</a>
+  </p>
+  <p class="mt-4 max-w-prose">{category.description}</p>
+
+  {category.rows.length === 0 ? (
+    <p class="mt-8 text-gray-600">No entries have been recorded yet.</p>
+  ) : (
+    <>
+      <div id="filter-box" class="mt-6 hidden">
+        <label for="filter" class="block text-sm font-semibold">Search this list</label>
+        <input
+          id="filter"
+          type="search"
+          placeholder="Type a name, year or event"
+          class="mt-1 w-full max-w-sm rounded border border-gray-300 px-3 py-2"
+        />
+        <p id="filter-status" class="mt-1 text-sm text-gray-600" aria-live="polite"></p>
+      </div>
+
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full min-w-max border-collapse text-left text-sm">
+          <caption class="sr-only">{category.title}</caption>
+          <thead class="bg-brand-blue text-white">
+            <tr>
+              {category.headers.map((header) => (
+                <th scope="col" class="px-3 py-2">{header}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {category.rows.map((row) => (
+              <tr class="border-b border-gray-200 odd:bg-white even:bg-gray-50">
+                {row.map((cell, i) => (
+                  <td class:list={["px-3 py-2", i === 0 && "font-semibold text-brand-blue"]}>
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  )}
+
+  <p class="mt-8 text-sm text-gray-600">
+    Records go back as far as is known. If you spot a mistake or a missing name, please
+    <a href="/contact/" class="text-brand-blue underline">get in touch</a>.
+  </p>
+
+  <script>
+    const box = document.getElementById("filter-box");
+    const input = document.getElementById("filter") as HTMLInputElement | null;
+    const status = document.getElementById("filter-status");
+    const rows = document.querySelectorAll<HTMLElement>("tbody tr");
+
+    if (box && input) {
+      box.classList.remove("hidden"); // only show the search box when JavaScript works
+      input.addEventListener("input", () => {
+        const term = input.value.trim().toLowerCase();
+        let shown = 0;
+        rows.forEach((row) => {
+          const match = term === "" || (row.textContent ?? "").toLowerCase().includes(term);
+          row.hidden = !match;
+          if (match) shown++;
+        });
+        if (status) {
+          status.textContent = term === "" ? "" : `${shown} of ${rows.length} entries shown`;
+        }
+      });
+    }
+  </script>
+</BaseLayout>

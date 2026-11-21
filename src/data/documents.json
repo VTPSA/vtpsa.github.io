@@ -173,5 +173,21 @@
     "category": "reports",
     "date": "2026-03-31",
     "file": "/documents/reports/2025-chairman-report.pdf"
+  },
+    {
+    "id": "dev-beginners-guide",
+    "title": "Beginner's Guide to the Sport",
+    "category": "development",
+    "topic": "Getting started",
+    "date": "2026-11-01",
+    "file": "/documents/development/beginners-guide.pdf"
+  },
+  {
+    "id": "dev-grip-and-stance",
+    "title": "Grip and Stance",
+    "category": "development",
+    "topic": "Technique",
+    "date": "2026-11-01",
+    "file": "/documents/development/grip-and-stance.pdf"
   }
 ]
